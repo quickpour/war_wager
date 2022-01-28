@@ -14,7 +14,7 @@ class User:
         self.updated_at = data['updated_at']
         self.past_events = []
         self.upcoming_events = []
-    db = "WarWager" 
+    db = "warwager" 
 
     @classmethod
     def get_user_by_email(cls, data):
@@ -47,5 +47,13 @@ class User:
             is_true = False
         return is_true
         
+    @classmethod
+    def register_user(cls, data):
+        query = "INSERT INTO users (first_name, last_name, email, password, created_at, updated_at) VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s, NOW(), NOW());"
+        return connectToMySQL(cls.db).query_db(query, data)
 
-
+    @classmethod
+    def get_user_by_id(cls, data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        results = connectToMySQL(cls.db).query_db(query, data)
+        return cls(results[0])
