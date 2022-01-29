@@ -7,14 +7,14 @@ bcrypt = Bcrypt(app)
 
 
 # this is just testing now
-@app.route('/testing')
-def testing():
-    return render_template('testing.html')
+@app.route('/landing')
+def landing():
+    return render_template('landing.html')
 
 
 @app.route('/')
-def landing():
-    return render_template('landing.html')
+def testing():
+    return render_template('testing.html')
 
 
 @app.route('/register')
@@ -43,20 +43,20 @@ def register_user():
 
 @app.route('/user_success')
 def valid_user():
+    person = user.User.get_user_by_id(session)
+    return render_template('/testing_success.html', person=person)
 
-    return render_template('/testing_success.html')
 
 @app.route('/login')
 def login_page():
-    return render_template('/login.html')
-    person = user.User.get_user_by_id(session)
-    return render_template('/testing_success.html', person=person)
+    return render_template('login.html')
+
 
 @app.route('/validate_login', methods=['POST'])
 def validate_logging():
     data = {
-        "email" : request.form["email"],
-        "password" : request.form["password"]
+        "email": request.form["email"],
+        "password": request.form["password"]
     }
     checkee = user.User.get_user_by_email(data)
     if not checkee:
@@ -68,5 +68,4 @@ def validate_logging():
     session['id'] = checkee.id
     print(session)
     print("it has made it to the end of validate_logging in users.py")
-    return  redirect('/user_success')
-
+    return redirect('/user_success')
