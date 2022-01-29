@@ -46,7 +46,14 @@
             </div>
             <div class="col">
                 <h1>Login</h1>
-                <form action="">
+                {% with messages = get_flashed_messages(category_filter=["login"]) %}
+                {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <form action="/validate_login" method="post">
                     <div class="form-group">
                         <label for="email">email</label>
                         <input type="text" name="email" class='form-control' id="">
