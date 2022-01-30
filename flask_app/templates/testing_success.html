@@ -17,6 +17,54 @@
                 <a href="/" class="btn btn-primary">Back</a>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <h1>Future event</h1>
+                {% with messages = get_flashed_messages(category_filter=["upcoming_event"]) %}
+                {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <form action="/upcoming_event/creation" class="form" method="post">
+                    <input type="hidden" name="user_id" value="{{person.id}}">
+                    <div class="form-group">
+                        <label for="game">Game</label>
+                        <select class="form-control" name="game" id="">
+                            <option value="warhammer">Warhammer</option>
+                            <option value="pathfinder">Pathfinder</option>
+                            <option value="x-wing">X-Wing</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Event Name</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" name="date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" name="time" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Event Description</label>
+                        <textarea name="description" class="form-control" id="" rows="2"></textarea>
+                    </div>
+                    <button class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1>The Games</h1>
+                <a href="" class="btn btn-danger">Warhammer</a>
+                <a href="/upcoming/pathfinder" class="btn btn-success">Pathfinder</a>
+                <a href="" class="btn btn-warning">X-Wing</a>
+            </div>
+        </div>
     </div>
     
 </body>
