@@ -72,3 +72,36 @@ class Upcoming_event:
             single_event.creator = single_user
             upcoming_events.append(single_event)
         return upcoming_events
+
+    @classmethod
+    def get_upcoming_by_id(cls, id):
+        data = {
+            'id' : id
+        }
+        query = "SELECT * FROM upcoming_events LEFT JOIN users ON upcoming_events.user_id = users.id WHERE upcoming_events.id = %(id)s;"
+        results = connectToMySQL(cls.db).query_db(query, data)
+        event_data = {
+                'id' : results[0]['id'],
+                'game' : results[0]['game'],
+                'name' : results[0]['name'],
+                'date' : results[0]['date'],
+                'time' : results[0]['time'],
+                'description' : results[0]['description'],
+                'created_at' : results[0]['created_at'],
+                'updated_at' : results[0]['updated_at']
+            }
+        upcoming_event = cls(event_data)
+        user_data = {
+                'id' : results[0]['users.id'],
+                'first_name' : results[0]['first_name'],
+                'last_name' : results[0]['last_name'],
+                'email' : results[0]['email'],
+                'password' : results[0]['password'],
+                'created_at' : results[0]['users.created_at'],
+                'updated_at' : results[0]['users.updated_at']
+            }
+        author = user.User(user_data)
+        upcoming_event.creator = author
+        print(results)
+        print("the results are here***************************")
+        return upcoming_event  
