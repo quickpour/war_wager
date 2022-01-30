@@ -20,3 +20,7 @@ def upcoming_by_game(game):
     upcoming = upcoming_event.Upcoming_event.get_upcoming_by_game(data)
     return render_template('testing_upcoming_display.html', game=game, upcoming_events=upcoming, user=person)
 
+@app.route('/view_event_secure/<int:id>')
+def get_upcoming_event_by_id(id):
+    upcoming_battle = upcoming_event.Upcoming_event.get_upcoming_by_id(id)
+    return render_template('upcoming_battle_event.html', upcoming_battle=upcoming_battle)
