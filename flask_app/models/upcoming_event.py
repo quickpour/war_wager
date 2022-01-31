@@ -102,6 +102,14 @@ class Upcoming_event:
             }
         author = user.User(user_data)
         upcoming_event.creator = author
-        print(results)
-        print("the results are here***************************")
-        return upcoming_event  
+        return upcoming_event
+
+    @classmethod
+    def update_upcoming_event(cls, data):
+        query = "UPDATE upcoming_events SET game = %(game)s, name = %(name)s, date=%(date)s, time=%(time)s, description=%(description)s, updated_at=NOW() WHERE id=%(id)s;"
+        return connectToMySQL(cls.db).query_db(query, data)
+
+    @classmethod
+    def delete_upcoming_event(cls, data):
+        query = "DELETE FROM upcoming_events WHERE id=%(id)s;"
+        return connectToMySQL(cls.db).query_db(query, data)

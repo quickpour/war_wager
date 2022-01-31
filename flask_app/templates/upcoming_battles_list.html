@@ -22,7 +22,7 @@
                 {% for upcoming_event in upcoming_events %}
                 <p>{{upcoming_event.name}} on {{upcoming_event.date}} <a href="/view_event_secure/{{upcoming_event.id}}">View</a></p>
                 {% if upcoming_event.creator.id == user.id %}
-                <a href="/edit_upcoming_event/{{upcoming_event.id}}" class="btn btn-outline-primary">Edit</a><a href="/delete_past_event/{{upcoming_event.id}}" class="btn btn-outline-danger">Delete</a>
+                <a href="/edit_upcoming_event/{{upcoming_event.id}}" class="btn btn-outline-primary">Edit</a><a href="/delete_upcoming/{{upcoming_event.id}}" class="btn btn-outline-danger">Delete</a>
                 {% endif %}
                 {% endfor %}
             </div>
