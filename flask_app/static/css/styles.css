@@ -1,3 +1,14 @@
+:root {
+    --primary-bg-color: #323232;
+    --primary-text-color: #FEF9EF;
+    --secondary-text-color: #D5D5D5;
+    --primary-card-color: #0F0E0E;
+}
+
+html {
+    height: 100%;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -5,6 +16,10 @@
 body {
     margin: 0;
     padding: 0;
+    background: var(--primary-bg-color);
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
 }
 
 .navbar {
@@ -13,6 +28,7 @@ body {
     align-items: center;
     background-color: #041A2F;
     color: white;
+    border-bottom: 1px solid white;
 }
 
 .brand-title img {
@@ -38,12 +54,404 @@ body {
 
 .navbar-links li a {
     text-decoration: none;
-    color: white;
+    color: var(--primary-text-color);
     padding: 0.5rem;
     display: block;
     font-size: 0.8rem;
 }
 
-.navbar-links li a:hover{
+.navbar-links li a:hover {
     color: #E8E1D9;
+}
+
+.background-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.landing-text {
+    margin-top: 10px;
+    color: var(--primary-text-color);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.landing-text h1 {
+    font-size: 4rem;
+    max-width: 12ch;
+}
+
+.landing-ipsum {
+    max-width: 50ch;
+}
+
+.background-container::before {
+    content: "";
+    background-image: url(https://wallpaperaccess.com/full/4924729.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.1;
+}
+
+.cards {
+    margin-top: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.card-warhammer {
+    background-color: var(--primary-card-color);
+    color: var(--primary-text-color);
+    font-family: sans-serif;
+    max-width: 35ch;
+    position: relative;
+    height: 50vh;
+    padding: 9rem 0 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+
+.card-warhammer:hover {
+    transform: scale(1.05);
+}
+
+.card-warhammer::before {
+    content: "";
+    background-image: url(../images/warhammer_card.jpeg);
+    background-size: cover;
+    background-position: 100% 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+.card-pathfinder {
+    background-color: var(--primary-card-color);
+    color: var(--primary-text-color);
+    font-family: sans-serif;
+    max-width: 35ch;
+    position: relative;
+    height: 50vh;
+    padding: 9rem 0 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+
+.card-pathfinder:hover {
+    transform: scale(1.05);
+}
+
+.card-pathfinder::before {
+    content: "";
+    background-image: url(../images/pathfinder_card.jpeg);
+    background-size: cover;
+    background-position: 100% 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+.card-xwing {
+    background-color: var(--primary-card-color);
+    color: var(--primary-text-color);
+    font-family: sans-serif;
+    max-width: 35ch;
+    position: relative;
+    height: 50vh;
+    padding: 9rem 0 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+
+.card-xwing:hover {
+    transform: scale(1.05);
+}
+
+.card-xwing::before {
+    content: "";
+    background-image: url(../images/x-wing_card.jpeg);
+    background-size: cover;
+    background-position: 100% 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+.card-content {
+    --padding: 1.5rem;
+    position: relative;
+    padding: var(--padding);
+    background: linear-gradient(
+            hsl(0 0% 0%  / 0),
+            hsl(0 0% 0%  / 0.4) 20%,
+            hsl(0 0% 0%  / 1)
+    );
+}
+
+.card-title, .button {
+    position: relative;
+}
+
+.card-title {
+    width: max-content;
+}
+
+.card-title::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: calc(100% + var(--padding));
+    left: calc(var(--padding) * -1);
+    bottom: 0;
+    background: #B33030;
+}
+
+.card-body {
+    position: relative;
+    padding: 0 0 0 10px;
+}
+
+.button {
+    cursor: pointer;
+    display: inline;
+    text-decoration: None;
+    color: var(--primary-text-color);
+    background-color: #B33030;
+    padding: 0.5em 1.25em;
+    border-radius: 0.25em;
+}
+
+.button:hover,
+.button:focus {
+    color: #D5D5D5;
+}
+
+.footer {
+    margin-top: auto;
+    background-color: #041A2F;
+    padding: 0.5rem
+}
+
+.footer img {
+    width: 150px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.footer-text {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer-msg, .footer-copyright {
+    color: var(--primary-text-color);
+    font-size: 0.7rem;
+}
+
+.footer-msg {
+    max-width: 100ch;
+}
+
+@media (max-width: 1000px) {
+    .landing-text h1 {
+        font-size: 3rem;
+        max-width: 12ch;
+    }
+
+    .landing-ipsum {
+        max-width: 35ch;
+    }
+
+    .card-warhammer {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        max-width: 25ch;
+        position: relative;
+        height: 45vh;
+        padding: 7.5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+    }
+
+    .card-pathfinder {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        max-width: 25ch;
+        position: relative;
+        height: 45vh;
+        padding: 7.5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+    }
+
+    .card-xwing {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        max-width: 25ch;
+        position: relative;
+        height: 45vh;
+        padding: 7.5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+    }
+
+    .card-title {
+        font-size: 1.2em;
+    }
+
+    .card-body {
+        font-size: 0.8em;
+    }
+
+    .footer-msg, .footer-copyright {
+        color: var(--primary-text-color);
+        font-size: 0.7rem;
+    }
+
+    .footer-msg {
+        max-width: 60ch;
+    }
+}
+
+@media (max-width: 700px) {
+    .background-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .background-container::before {
+        content: "";
+        background-image: url(https://wallpaperaccess.com/full/4924729.jpg);
+        background-size: cover;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0.1;
+    }
+
+    .landing-text {;
+        color: var(--primary-text-color);
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        margin: 10px auto 0 auto;
+    }
+
+    .landing-text h1 {
+        font-size: 3rem;
+        max-width: 12ch;
+    }
+
+    .landing-ipsum {
+        max-width: 35ch;
+    }
+
+    .cards {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .card-warhammer {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        max-width: 45ch;
+        position: relative;
+        height: 35vh;
+        padding: 6.5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+        margin-top: 10px;
+    }
+
+    .card-pathfinder {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        max-width: 45ch;
+        position: relative;
+        height: 35vh;
+        padding: 6.5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+        margin-top: 10px;
+    }
+
+    .card-xwing {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        max-width: 45ch;
+        position: relative;
+        height: 35vh;
+        padding: 6.5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+        margin-top: 10px;
+    }
+
+    .card-title {
+        font-size: 1.2em;
+    }
+
+    .card-body {
+        font-size: 0.8em;
+    }
+
+    .button {
+        font-size: 0.8em;
+        cursor: pointer;
+        display: inline;
+        text-decoration: None;
+        color: var(--primary-text-color);
+        background-color: #B33030;
+        padding: 0.3em 1em;
+        border-radius: 0.25em;
+    }
+
+
+
+    .footer-msg, .footer-copyright {
+        color: var(--primary-text-color);
+        font-size: 0.5rem;
+    }
+
+    .footer-msg {
+        max-width: 40ch;
+    }
 }
