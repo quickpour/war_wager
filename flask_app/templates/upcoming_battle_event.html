@@ -11,6 +11,7 @@
 <body>
     <div class="container">
         <div class="row">
+            <h1> hello {{person.first_name}}</h1>
             <div class="col">
                 <a href="/user_success">Back</a>
             </div>
@@ -23,10 +24,29 @@
                 <p>{{upcoming_battle.time}}</p>
                 <p>{{upcoming_battle.description}}</p>
                 <p>{{upcoming_battle.creator.first_name}}</p>
-                <p>{{upcoming_battle.creator.password}}</p>
+                <p>{{upcoming_battle.creator.password}} </p>
+                <div>
+                </div>
             </div>
         </div>
+        {% if person.id == upcoming_battle.creator.id %}
+        <a href="/edit_upcoming_event/{{upcoming_battle.id}}" class="btn btn-outline-danger">edit</a>
+        <a href="/delete_upcoming/{{upcoming_battle.id}}" class="btn btn-outline-danger">delete</a>
+        {% endif %}
+        <div class="row">
+            <h3>comment:</h3>
+            <form action="" method="post">
+                <input type="hidden" name="user_id" value="{{person.id}}" id="">
+                <input type="hidden" name="upcoming_event_id" value="{{upcoming_battle.id}}">
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea name="comment" id="" class="form-control" rows="2"></textarea>
+                </div>
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
+            </form>
+        </div>
     </div>
+
     
 </body>
 </html>

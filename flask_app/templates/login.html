@@ -25,15 +25,25 @@
         </ul>
     </div>
 </nav>
+
 <div class="logreg-container">
     <div class="container-login">
         <h1>Login</h1>
-        <form action="">
+            {% with messages = get_flashed_messages(category_filter=["login"]) %}
+            {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        <form action="/validate_login" method="post">
             <div class="form-group-user">
+                <label for="email">email</label>
                 <input type="text" name="email" id="" placeholder="email">
                 <span></span>
             </div>
             <div class="form-group-user">
+                <label for="password">Password</label>
                 <input type="password" name="password" id="" placeholder="password">
                 <span></span>
             </div>
@@ -48,6 +58,7 @@
         <p class="footer-msg">Made with <3 and Coffee. Product of Hector Garcia - Product Manager, Zachary Bacon -
             Backend, Hiwot Aynalem - Backend, and Brian Yee - Frontend</p>
         <p class="footer-copyright">©2022 War Wager</p>
+      
     </div>
 </div>
 </body>

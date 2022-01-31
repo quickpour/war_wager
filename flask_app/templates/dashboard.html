@@ -4,9 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/styles.css') }}">
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>this is the dashboard page</h1>
+    <h1>Hello {{person.first_name}}</h1>
+    <a href="/logout">Logout</a>
+    <h2>what do you want to do?</h2>
+    <a href="/to_event_create">Create Upcoming Event</a>
+    <a href="">Tell the tale of past battles</a>
+
+    <div class="cards">
+        <div class="card-warhammer">
+            <div class="card-content warhammer">
+                <h2 class="card-title warhammer">War Hammer 40K</h2>
+                <p class="card-body warhammer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae dui
+                    erat.
+                    Suspendisse
+                    tellus diam, dignissim ac purus eu, volutpat viverra ipsum.</p>
+                <a href="/upcoming/warhammer" class="button">Find Events</a>
+            </div>
+        </div>
+
+        <div class="card-pathfinder">
+            <div class="card-content">
+                <h2 class="card-title">Path Finder</h2>
+                <p class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae dui erat.
+                    Suspendisse
+                    tellus diam, dignissim ac purus eu, volutpat viverra ipsum.</p>
+                <a href="/upcoming/pathfinder" class="button">Find Events</a>
+            </div>
+        </div>
+
+        <div class="card-xwing">
+            <div class="card-content">
+                <h2 class="card-title">Star Wars X-Wing</h2>
+                <p class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae dui erat.
+                    Suspendisse
+                    tellus diam, dignissim ac purus eu, volutpat viverra ipsum.</p>
+                <a href="/upcoming/x-wing" class="button">Find Events</a>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 </html>
