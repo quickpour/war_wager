@@ -22,11 +22,25 @@ def upcoming_by_game(game):
     upcoming = upcoming_event.Upcoming_event.get_upcoming_by_game(data)
     return render_template('upcoming_battles_list.html', game=game, upcoming_events=upcoming, user=person)
 
+@app.route('/upcoming/nolog/<string:game>')
+def upcoming_by_game_nolog(game):
+    print("i am attempting to print", game)
+    data = {
+        "game" : game
+    }
+    upcoming = upcoming_event.Upcoming_event.get_upcoming_by_game(data)
+    return render_template('nolog_upcoming_list.html', game=game, upcoming_events=upcoming)
+
 @app.route('/view_event_secure/<int:id>')
 def get_upcoming_event_by_id(id):
     upcoming_battle = upcoming_event.Upcoming_event.get_upcoming_by_id(id)
     person = user.User.get_user_by_id(session)
     return render_template('upcoming_battle_event.html', upcoming_battle=upcoming_battle, person=person)
+
+@app.route('/view_event_secure/nolog/<int:id>')
+def get_upcoming_event_by_id_nolog(id):
+    upcoming_battle = upcoming_event.Upcoming_event.get_upcoming_by_id(id)
+    return render_template('nolog_upcoming_event.html', upcoming_battle=upcoming_battle)
 
 @app.route('/to_event_create')
 def event_creation():

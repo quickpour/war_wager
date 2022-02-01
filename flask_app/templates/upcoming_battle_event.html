@@ -34,8 +34,46 @@
         <a href="/delete_upcoming/{{upcoming_battle.id}}" class="btn btn-outline-danger">delete</a>
         {% endif %}
         <div class="row">
+            <div class="col">
+                <h3>Comments:</h3>
+                {% if comments %}
+                {% for comment in comments %}
+                <div class="text-white bg-dark m-1 p-1 col-lg-4">
+                    <p>{{comment.comment}}
+                        {% if comment.author.id == user.id %}
+                        <div class="btn-group">
+
+                            <form class='form-inline' action="/comment_editor" method="post">
+                                <input type="hidden" name="id" value="{{comment.id}}">
+                                <input type="hidden" name="upcoming_event_id" value="{{upcoming_battle.id}}">
+                                <input type="text" name="comment" placeholder="edit comment">
+                                <button type="submit" class="btn btn-default btn-outline-primary">Edit</button>
+                            </form>
+                            <form class='form-inline' action="/delete_comment_user" method="post">
+                                <input type="hidden" name="id" value="{{comment.id}}">
+                                <input type="hidden" name="upcoming_event_id" value="{{upcoming_battle.id}}">
+                                <button type="submit" class="btn btn-default btn-outline-danger">Delete</button>
+                            </form>
+                        </div>
+                        {% endif %}
+                    </p>
+                    <p>by: {{comment.author.first_name}} on {{comment.created_at}}</p>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+        </div>
+        <div class="row">
             <h3>comment:</h3>
-            <form action="" method="post">
+            {% with messages = get_flashed_messages(category_filter=["comment"]) %}
+            {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <form action="/create_new_comment" method="post">
                 <input type="hidden" name="user_id" value="{{person.id}}" id="">
                 <input type="hidden" name="upcoming_event_id" value="{{upcoming_battle.id}}">
                 <div class="form-group">
