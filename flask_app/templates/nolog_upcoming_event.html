@@ -31,6 +31,16 @@
         </div>
         <div class="row">
             <h2>future comments for evnent will go here</h2>
+            <h1>comments below</h1>
+            {% if comments %}
+            {% for comment in comments %}
+            <div class="text-white bg-dark m-1 p-1 col-lg-4">
+                <p>{{comment.comment}}</p>
+                <p>by: {{comment.author.first_name}} on {{comment.created_at}}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
+
         </div>
     </div>
 
