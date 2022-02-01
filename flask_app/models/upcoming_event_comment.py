@@ -28,8 +28,11 @@ class Upcoming_event_comment:
 
     @classmethod
     def get_upcoming_event_comments(cls, data):
-        query = "SELECT * FROM upcoming_event_comments LEFT JOIN users on users.id = upcoming_event_comments.user_id WHERE upcoming_event_comments.upcoming_event_id = %(id)s"
+        print("i hope this will appear")
+        query = "SELECT * FROM upcoming_event_comments LEFT JOIN users on users.id = upcoming_event_comments.user_id WHERE upcoming_event_comments.upcoming_event_id = %(id)s;"
         results = connectToMySQL(cls.db).query_db(query, data)
+        if not results:
+            return False
         all_comments = []
         for result in results:
             comment_data = {

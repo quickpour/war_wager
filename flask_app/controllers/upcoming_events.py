@@ -1,6 +1,6 @@
 from flask_app import app
 from flask import render_template, redirect, session, request
-from flask_app.models import upcoming_event, user
+from flask_app.models import upcoming_event, user, upcoming_event_comment
 
 
 @app.route('/upcoming_event/creation', methods=['POST'])
@@ -33,14 +33,24 @@ def upcoming_by_game_nolog(game):
 
 @app.route('/view_event_secure/<int:id>')
 def get_upcoming_event_by_id(id):
-    upcoming_battle = upcoming_event.Upcoming_event.get_upcoming_by_id(id)
+    if 'id' not in session:
+        return redirect('/')
     person = user.User.get_user_by_id(session)
-    return render_template('upcoming_battle_event.html', upcoming_battle=upcoming_battle, person=person)
+    data = {
+        'id' : id
+    }
+    upcoming_battle = upcoming_event.Upcoming_event.get_upcoming_by_id(id)
+    comments = upcoming_event_comment.Upcoming_event_comment.get_upcoming_event_comments(data)
+    return render_template('upcoming_battle_event.html', upcoming_battle=upcoming_battle, person=person, comments=comments)
 
 @app.route('/view_event_secure/nolog/<int:id>')
 def get_upcoming_event_by_id_nolog(id):
     upcoming_battle = upcoming_event.Upcoming_event.get_upcoming_by_id(id)
-    return render_template('nolog_upcoming_event.html', upcoming_battle=upcoming_battle)
+    data = {
+        'id' : id
+    }
+    comments = upcoming_event_comment.Upcoming_event_comment.get_upcoming_event_comments(data)
+    return render_template('nolog_upcoming_event.html', upcoming_battle=upcoming_battle, comments=comments)
 
 @app.route('/to_event_create')
 def event_creation():

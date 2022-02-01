@@ -40,7 +40,7 @@
                 {% for comment in comments %}
                 <div class="text-white bg-dark m-1 p-1 col-lg-4">
                     <p>{{comment.comment}}
-                        {% if comment.author.id == user.id %}
+                        {% if comment.author.id == person.id %}
                         <div class="btn-group">
 
                             <form class='form-inline' action="/comment_editor" method="post">
