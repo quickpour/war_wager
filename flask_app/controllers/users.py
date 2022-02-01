@@ -14,6 +14,7 @@ def landing():
 
 @app.route('/')
 def testing():
+    session.clear()
     return render_template('landing.html')
 
 
