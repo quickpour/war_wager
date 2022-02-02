@@ -68,7 +68,7 @@ body {
 .logreg-container {
     position: relative;
     width: 100vw;
-    height: 83vh;
+    height: 800px;
 
 }
 
@@ -94,7 +94,7 @@ body {
     color: var(--primary-bg-color);
     background: var(--primary-text-color);
     border-radius: 0.5rem;
-    height: 35vh;
+    height: 300px;
 }
 
 .container-reg {
@@ -106,7 +106,7 @@ body {
     color: var(--primary-bg-color);
     background: var(--primary-text-color);
     border-radius: 0.5rem;
-    height: 50vh;
+    height: 425px;
 }
 
 .container-login h1, .container-reg h1 {
@@ -192,7 +192,8 @@ body {
 .footer {
     margin-top: auto;
     background-color: #041A2F;
-    padding: 0.5rem
+    padding: 0.5rem;
+    position: relative;
 }
 
 .footer img {

@@ -18,7 +18,7 @@ body {
     padding: 0;
     background: var(--primary-bg-color);
     display: flex;
-    min-height: 100%;
+
     flex-direction: column;
 }
 
@@ -65,10 +65,11 @@ body {
 }
 
 
+
 .background-container {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 800px;
 }
 
 
@@ -113,7 +114,7 @@ body {
     font-family: sans-serif;
     max-width: 35ch;
     position: relative;
-    height: 50vh;
+    height: 400px;
     padding: 9rem 0 0;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -143,7 +144,7 @@ body {
     font-family: sans-serif;
     max-width: 35ch;
     position: relative;
-    height: 50vh;
+    height: 400px;
     padding: 9rem 0 0;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -173,7 +174,7 @@ body {
     font-family: sans-serif;
     max-width: 35ch;
     position: relative;
-    height: 50vh;
+    height: 400px;
     padding: 9rem 0 0;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -249,7 +250,8 @@ body {
 .footer {
     margin-top: auto;
     background-color: #041A2F;
-    padding: 0.5rem
+    padding: 0.5rem;
+    position: relative;
 }
 
 .footer img {
@@ -288,7 +290,7 @@ body {
         font-family: sans-serif;
         max-width: 25ch;
         position: relative;
-        height: 45vh;
+        height: 350px;
         padding: 7.5rem 0 0;
         border-radius: 0.5rem;
         overflow: hidden;
@@ -301,7 +303,7 @@ body {
         font-family: sans-serif;
         max-width: 25ch;
         position: relative;
-        height: 45vh;
+        height: 350px;
         padding: 7.5rem 0 0;
         border-radius: 0.5rem;
         overflow: hidden;
@@ -314,7 +316,7 @@ body {
         font-family: sans-serif;
         max-width: 25ch;
         position: relative;
-        height: 45vh;
+        height: 350px;
         padding: 7.5rem 0 0;
         border-radius: 0.5rem;
         overflow: hidden;
@@ -350,7 +352,6 @@ body {
         content: "";
         background-image: url(https://wallpaperaccess.com/full/4924729.jpg);
         background-size: cover;
-
         position: absolute;
         top: 0;
         right: 0;
@@ -390,7 +391,7 @@ body {
         font-family: sans-serif;
         max-width: 45ch;
         position: relative;
-        height: 35vh;
+        height: 265px;
         padding: 6.5rem 0 0;
         border-radius: 0.5rem;
         overflow: hidden;
@@ -404,7 +405,7 @@ body {
         font-family: sans-serif;
         max-width: 45ch;
         position: relative;
-        height: 35vh;
+        height: 265px;
         padding: 6.5rem 0 0;
         border-radius: 0.5rem;
         overflow: hidden;
@@ -418,7 +419,7 @@ body {
         font-family: sans-serif;
         max-width: 45ch;
         position: relative;
-        height: 35vh;
+        height: 265px;
         padding: 6.5rem 0 0;
         border-radius: 0.5rem;
         overflow: hidden;

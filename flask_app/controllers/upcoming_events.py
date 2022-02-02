@@ -12,24 +12,27 @@ def create_event():
     upcoming_event.Upcoming_event.create_upcoming_event(request.form)
     return redirect('/user_success')
 
+
 @app.route('/upcoming/<string:game>')
 def upcoming_by_game(game):
     print("i am attempting to print", game)
     data = {
-        "game" : game
+        "game": game
     }
     person = user.User.get_user_by_id(session)
     upcoming = upcoming_event.Upcoming_event.get_upcoming_by_game(data)
     return render_template('upcoming_battles_list.html', game=game, upcoming_events=upcoming, user=person)
 
+
 @app.route('/upcoming/nolog/<string:game>')
 def upcoming_by_game_nolog(game):
     print("i am attempting to print", game)
     data = {
-        "game" : game
+        "game": game
     }
     upcoming = upcoming_event.Upcoming_event.get_upcoming_by_game(data)
     return render_template('nolog_upcoming_list.html', game=game, upcoming_events=upcoming)
+
 
 @app.route('/view_event_secure/<int:id>')
 def get_upcoming_event_by_id(id):
@@ -37,20 +40,23 @@ def get_upcoming_event_by_id(id):
         return redirect('/')
     person = user.User.get_user_by_id(session)
     data = {
-        'id' : id
+        'id': id
     }
     upcoming_battle = upcoming_event.Upcoming_event.get_upcoming_by_id(id)
     comments = upcoming_event_comment.Upcoming_event_comment.get_upcoming_event_comments(data)
-    return render_template('upcoming_battle_event.html', upcoming_battle=upcoming_battle, person=person, comments=comments)
+    return render_template('upcoming_battle_event.html', upcoming_battle=upcoming_battle, person=person,
+                           comments=comments)
+
 
 @app.route('/view_event_secure/nolog/<int:id>')
 def get_upcoming_event_by_id_nolog(id):
     upcoming_battle = upcoming_event.Upcoming_event.get_upcoming_by_id(id)
     data = {
-        'id' : id
+        'id': id
     }
     comments = upcoming_event_comment.Upcoming_event_comment.get_upcoming_event_comments(data)
     return render_template('nolog_upcoming_event.html', upcoming_battle=upcoming_battle, comments=comments)
+
 
 @app.route('/to_event_create')
 def event_creation():
@@ -59,10 +65,12 @@ def event_creation():
     person = user.User.get_user_by_id(session)
     return render_template('upcoming_battle_create.html', person=person)
 
+
 @app.route('/edit_upcoming_event/<int:id>')
 def to_event_edit(id):
     the_event = upcoming_event.Upcoming_event.get_upcoming_by_id(id)
     return render_template('edit_upcoming_battle.html', event=the_event)
+
 
 @app.route('/edit_the_event', methods=['POST'])
 def edit_upcoming_e():
@@ -72,10 +80,11 @@ def edit_upcoming_e():
     the_id = request.form['id']
     return redirect(f'/view_event_secure/{the_id}')
 
+
 @app.route('/delete_upcoming/<int:id>')
 def delete_upcoming(id):
     data = {
-        'id' : id
+        'id': id
     }
     upcoming_event.Upcoming_event.delete_upcoming_event(data)
     return redirect('/user_success')
