@@ -59,10 +59,10 @@ class Upcoming_event_comment:
 
     @classmethod
     def update_comment_actually(cls, data):
-        query = "UPDATE comments SET comment = %(comment)s, updated_at=NOW() WHERE id=%(id)s;"
+        query = "UPDATE upcoming_event_comments SET comment = %(comment)s, updated_at=NOW() WHERE id=%(id)s;"
         return connectToMySQL(cls.db).query_db(query, data)
 
     @classmethod
     def delete_comment(cls, data):
-        query = "DELETE FROM comments WHERE id = %(id)s;"
+        query = "DELETE FROM upcoming_event_comments WHERE id = %(id)s;"
         return connectToMySQL(cls.db).query_db(query, data)
