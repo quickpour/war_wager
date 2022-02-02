@@ -68,7 +68,9 @@ body {
 .background-container {
     position: relative;
     width: 100%;
-    height: 800px;
+    min-height: 100vh;
+    max-height: fit-content;
+    padding-bottom: 75px;
 }
 
 

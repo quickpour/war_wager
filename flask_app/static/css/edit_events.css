@@ -63,11 +63,13 @@ body {
 
 .main-container {
     background: var(--primary-bg-color);
-    height: 800px;
+    min-height: 100vh;
+    max-height:fit-content;
     position: relative;
     padding: 20px;
     display: flex;
     justify-content: space-evenly;
+
 }
 
 .main-container::before {
@@ -217,7 +219,7 @@ error-message {
 
     .main-container {
         background: var(--primary-bg-color);
-        height: 800px;
+        height: fit-content;
         position: relative;
         padding: 20px;
         display: flex;
@@ -228,7 +230,7 @@ error-message {
         position: relative;
         color: var(--primary-text-color);
         width: 400px;
-        height: 700px;
+        height: max-content;
         margin: auto;
         border-radius: 1.5rem;
         overflow: hidden;
