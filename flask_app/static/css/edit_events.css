@@ -63,7 +63,7 @@ body {
 
 .main-container {
     background: var(--primary-bg-color);
-    height: 650px;
+    height: 800px;
     position: relative;
     padding: 20px;
     display: flex;
@@ -72,14 +72,15 @@ body {
 
 .main-container::before {
     content: "";
-    background-image: url(../images/create-event-bg.png);
+    background-image: url(../images/edit-event-bg.jpeg);
     background-size: cover;
+    background-position: 30% 50%;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    opacity: 0.4;
+    opacity: 0.6;
 }
 
 .main-container h1 {
@@ -94,13 +95,12 @@ body {
     color: var(--primary-text-color);
     width: 450px;
     height: max-content;
-    float: right;
     border-radius: 1.5rem;
     overflow: hidden;
     padding: 1rem;
 }
 
-.error-message{
+error-message {
     position: relative;
     color: #b36060;
     font-size: 0.7rem;
@@ -119,9 +119,8 @@ body {
     opacity: 0.4;
 }
 
-
 .create-form h1 {
-    width: max-content;
+    width: fit-content;
     margin: auto;
     position: relative;
 }
@@ -171,6 +170,10 @@ body {
     transform: scale(1.05);
 }
 
+.form-group textarea::placeholder{
+    color: var(--secondary-text-color)
+}
+
 .footer {
     margin-top: auto;
     background-color: #041A2F;
@@ -214,7 +217,7 @@ body {
 
     .main-container {
         background: var(--primary-bg-color);
-        height: 650px;
+        height: 800px;
         position: relative;
         padding: 20px;
         display: flex;
@@ -224,8 +227,8 @@ body {
     .create-form {
         position: relative;
         color: var(--primary-text-color);
-        width: 300px;
-        height: 475px;
+        width: 400px;
+        height: 700px;
         margin: auto;
         border-radius: 1.5rem;
         overflow: hidden;
