@@ -1,0 +1,173 @@
+:root {
+    --primary-bg-color: #323232;
+    --primary-text-color: #FEF9EF;
+    --secondary-text-color: #D5D5D5;
+    --primary-card-color: #0F0E0E;
+}
+
+html {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--primary-bg-color);
+    display: flex;
+
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #041A2F;
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.brand-title img {
+    width: 200px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.navbar-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+
+    list-style: None;
+}
+
+.navbar-links li a, .navbar-links li p {
+    text-decoration: none;
+    color: var(--primary-text-color);
+    padding: 0.5rem;
+    display: inline;
+    font-size: 0.8rem;
+}
+
+.navbar-links li a:hover {
+    color: #E8E1D9;
+}
+
+.upcoming-container{
+    width: 100vw;
+    height: 800px;
+    background: var(--primary-bg-color);
+    padding: 0;
+}
+
+.title-card-warhammer{
+    position: relative;
+    width: 95vw;
+    margin: auto;
+    height: 300px;
+    padding: 9rem 0 0;
+    background: var(--primary-bg-color);
+    border-radius: 1rem;
+    overflow: hidden;
+
+}
+
+.title-card-warhammer:before{
+    content: "";
+    background-image: url(https://wallpaperaccess.com/full/1746147.jpg);
+    background-size: cover;
+    background-position: 0 30%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.title-card-warhammer h1{
+    position: relative;
+    width: max-content;
+    color: var(--primary-text-color);
+}
+
+.card-title::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: calc(100% + var(--padding));
+    left: calc(var(--padding) * -1);
+    bottom: 0;
+    background: #B33030;
+}
+
+.card-content {
+    color: var(--primary-text-color);
+    --padding: 1.5rem;
+    position: relative;
+    padding: var(--padding);
+    background: linear-gradient(
+            hsl(0 0% 0%  / 0),
+            hsl(0 0% 0%  / 0.4) 20%,
+            hsl(0 0% 0%  / 1)
+    );
+}
+
+.footer {
+    margin-top: auto;
+    background-color: #041A2F;
+    padding: 0.5rem;
+    position: relative;
+}
+
+.footer img {
+    width: 150px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.footer-text {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer-msg, .footer-copyright {
+    color: var(--primary-text-color);
+    font-size: 0.7rem;
+}
+
+.footer-msg {
+    max-width: 100ch;
+}
+
+@media (max-width: 1000px) {
+
+
+    .footer-msg, .footer-copyright {
+        color: var(--primary-text-color);
+        font-size: 0.7rem;
+    }
+
+    .footer-msg {
+        max-width: 60ch;
+    }
+}
+
+@media (max-width: 700px) {
+
+
+    .footer-msg, .footer-copyright {
+        color: var(--primary-text-color);
+        font-size: 0.5rem;
+    }
+
+    .footer-msg {
+        max-width: 40ch;
+    }
+}

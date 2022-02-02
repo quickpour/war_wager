@@ -1,5 +1,7 @@
 Pipfile
 .env
+
+mysqlconnection.py
 # Created by https://www.toptal.com/developers/gitignore/api/windows,flask,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,flask,python
 
