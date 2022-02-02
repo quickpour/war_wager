@@ -23,16 +23,17 @@
     </div>
 </nav>
 <div class="main-container">
-    {% with messages = get_flashed_messages(category_filter=["upcoming_event"]) %}
-        {% if messages %}
-            {% for message in messages %}
-                <p>{{ message }}</p>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+
     <h1>Create An Upcoming Event</h1>
     <div class="create-form">
         <h1>Wage War</h1>
+        {% with messages = get_flashed_messages(category_filter=["upcoming_event"]) %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="error-message">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <form action="/upcoming_event/creation" class="form" method="post">
             <input type="hidden" name="user_id" value="{{ person.id }}">
             <div class="form-group">

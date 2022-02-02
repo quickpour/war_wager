@@ -5,86 +5,110 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/event.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <h1> hello {{person.first_name}}</h1>
-            <div class="col">
-                <a href="/user_success">Back</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <h1>The event</h1>
-                <p>{{upcoming_battle.name}}</p>
-                <p>{{upcoming_battle.date}}</p>
-                <p>{{upcoming_battle.time}}</p>
-                <p>{{upcoming_battle.description}}</p>
-                <p>{{upcoming_battle.creator.first_name}}</p>
-                <p>{{upcoming_battle.creator.password}} </p>
-                <div>
-                </div>
-            </div>
-        </div>
+<nav CLASS="navbar">
+    <div class="brand-title">
+        <a href="/user_success" class=""><img src="../static/images/logo.png" alt="war_wager.png"></a>
+    </div>
+    <div class="navbar-links">
+        <ul>
+            <li><p>Hello {{ person.first_name }}</p>|<a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="event-container">
+    {% if upcoming_battle.game == 'warhammer' %}
+        <div class="title-card-warhammer">
+    {% elif upcoming_battle.game == 'pathfinder' %}
+        <div class="title-card-pathfinder">
+    {% elif upcoming_battle.game == 'x-wing' %}
+        <div class="title-card-xwing">
+    {% endif %}
+    <div class="title-card-content">
+        <h1 class="title-card-title">{{ upcoming_battle.creator.first_name }}'s {{ upcoming_battle.game }}
+            event: {{ upcoming_battle.name }}</h1>
+        <p class="title-card-body">{{ upcoming_battle.description }}<br>time: {{ upcoming_battle.time }}<br>date: {{ upcoming_battle.date }}
+        </p>
         {% if person.id == upcoming_battle.creator.id %}
-        <a href="/edit_upcoming_event/{{upcoming_battle.id}}" class="btn btn-outline-danger">edit</a>
-        <a href="/delete_upcoming/{{upcoming_battle.id}}" class="btn btn-outline-danger">delete</a>
+            <div class="title-buttons">
+                <a href="/edit_upcoming_event/{{ upcoming_battle.id }}" class="title-button">edit</a>
+                <a href="/delete_upcoming/{{ upcoming_battle.id }}" class="title-button">delete</a>
+            </div>
         {% endif %}
-        <div class="row">
-            <div class="col">
-                <h3>Comments:</h3>
-                {% if comments %}
-                {% for comment in comments %}
-                <div class="text-white bg-dark m-1 p-1 col-lg-4">
-                    <p>{{comment.comment}}
-                        {% if comment.author.id == person.id %}
-                        <div class="btn-group">
+    </div>
+    </div>
+    {#    <p>{{ upcoming_battle.name }}</p>#}
+    {#    <p>{{ upcoming_battle.date }}</p>#}
+    {#    <p>{{ upcoming_battle.time }}</p>#}
+    {#    <p>{{ upcoming_battle.description }}</p>#}
+    {#    <p>{{ upcoming_battle.creator.first_name }}</p>#}
+    {#<p>{{ upcoming_battle.creator.password }} </p>#}
 
-                            <form class='form-inline' action="/comment_editor" method="post">
-                                <input type="hidden" name="id" value="{{comment.id}}">
-                                <input type="hidden" name="upcoming_event_id" value="{{upcoming_battle.id}}">
+    {#    {% if person.id == upcoming_battle.creator.id %}#}
+    {#        <a href="/edit_upcoming_event/{{ upcoming_battle.id }}" class="btn btn-outline-danger">edit</a>#}
+    {#        <a href="/delete_upcoming/{{ upcoming_battle.id }}" class="btn btn-outline-danger">delete</a>#}
+    {#    {% endif %}#}
+
+    <div class="comments-list">
+        <h1>Comments:</h1>
+        {% if comments %}
+            {% for comment in comments %}
+                <div class="message-container">
+                    <h3 id="author">{{ comment.author.first_name }}<p class="delivery">
+                        sent: {{ comment.created_at }}</p></h3>
+                    <p>{{ comment.comment }}</p>
+                    {% if comment.author.id == person.id %}
+                        <div class="buttons">
+                            <form class='edit-del' action="/comment_editor" method="post">
+                                <input type="hidden" name="id" value="{{ comment.id }}">
+                                <input type="hidden" name="upcoming_event_id" value="{{ upcoming_battle.id }}">
                                 <input type="text" name="comment" placeholder="edit comment">
-                                <button type="submit" class="btn btn-default btn-outline-primary">Edit</button>
+                                <button type="submit" class="button">edit</button>
                             </form>
-                            <form class='form-inline' action="/delete_comment_user" method="post">
-                                <input type="hidden" name="id" value="{{comment.id}}">
-                                <input type="hidden" name="upcoming_event_id" value="{{upcoming_battle.id}}">
-                                <button type="submit" class="btn btn-default btn-outline-danger">Delete</button>
+                            <form class='edit-del' action="/delete_comment_user" method="post">
+                                <input type="hidden" name="id" value="{{ comment.id }}">
+                                <input type="hidden" name="upcoming_event_id" value="{{ upcoming_battle.id }}">
+                                <button type="submit" class="button">delete</button>
                             </form>
                         </div>
-                        {% endif %}
-                    </p>
-                    <p>by: {{comment.author.first_name}} on {{comment.created_at}}</p>
+                    {% endif %}
                 </div>
-                {% endfor %}
-                {% endif %}
-
-        </div>
-        <div class="row">
-            <h3>comment:</h3>
-            {% with messages = get_flashed_messages(category_filter=["comment"]) %}
-            {% if messages %}
-            {% for message in messages %}
-                <p>{{message}}</p>
             {% endfor %}
+        {% endif %}
+    </div>
+    <div class="make-comment">
+        <h1>Comment:</h1>
+        {% with messages = get_flashed_messages(category_filter=["comment"]) %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
             {% endif %}
-            {% endwith %}
+        {% endwith %}
 
-            <form action="/create_new_comment" method="post">
-                <input type="hidden" name="user_id" value="{{person.id}}" id="">
-                <input type="hidden" name="upcoming_event_id" value="{{upcoming_battle.id}}">
-                <div class="form-group">
-                    <label for="comment">Comment:</label>
-                    <textarea name="comment" id="" class="form-control" rows="2"></textarea>
-                </div>
-                <button type="submit" class="btn btn-outline-primary">Submit</button>
-            </form>
+        <form action="/create_new_comment" method="post">
+            <input type="hidden" name="user_id" value="{{ person.id }}" id="">
+            <input type="hidden" name="upcoming_event_id" value="{{ upcoming_battle.id }}">
+            <div class="form-group">
+                <textarea name="comment" id="" class="form-control" rows="2" placeholder="message..."></textarea>
+            </div>
+            <button type="submit" class="comment-button">Submit</button>
+        </form>
+    </div>
+    </div>
+    <div class="footer">
+        <div class="footer-text">
+            <img src="../static/images/logo.png" alt="logo.png">
+            <p class="footer-msg">Made with <3 and Coffee. Product of Hector Garcia - Product Manager, Zachary Bacon
+                -
+                Backend, Hiwot Aynalem - Backend, and Brian Yee - Frontend</p>
+            <p class="footer-copyright">©2022 War Wager</p>
         </div>
     </div>
-
-    
 </body>
 </html>

@@ -60,26 +60,31 @@ body {
     color: #E8E1D9;
 }
 
-.upcoming-container{
+.upcoming-container {
     width: 100vw;
-    height: 800px;
+    min-height: 800px;
+    max-height: 100%;
     background: var(--primary-bg-color);
     padding: 0;
 }
 
-.title-card-warhammer{
+.guest-greeting {
+    position: absolute;
+    top: 0;
+}
+
+.title-card-warhammer {
     position: relative;
     width: 95vw;
     margin: auto;
     height: 300px;
-    padding: 9rem 0 0;
+    padding: 7rem 0 0;
     background: var(--primary-bg-color);
     border-radius: 1rem;
     overflow: hidden;
-
 }
 
-.title-card-warhammer:before{
+.title-card-warhammer:before {
     content: "";
     background-image: url(https://wallpaperaccess.com/full/1746147.jpg);
     background-size: cover;
@@ -91,10 +96,205 @@ body {
     left: 0;
 }
 
-.title-card-warhammer h1{
+.title-card-pathfinder {
+    position: relative;
+    width: 95vw;
+    margin: auto;
+    height: 300px;
+    padding: 8rem 0 0;
+    background: var(--primary-bg-color);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.title-card-pathfinder:before {
+    content: "";
+    background-image: url(../images/pathfinder_events.jpg);
+    background-size: cover;
+    background-position: 0 20%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.title-card-xwing {
+    position: relative;
+    width: 95vw;
+    margin: auto;
+    height: 300px;
+    padding: 8rem 0 0;
+    background: var(--primary-bg-color);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.title-card-xwing:before {
+    content: "";
+    background-image: url(https://images3.alphacoders.com/823/thumb-1920-823131.jpg);
+    background-size: cover;
+    background-position: 0 40%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.guest-greeting{
+    margin: 110px 0 0 20px;
+    width: max-content;
+    color: var(--primary-text-color);
+    font-size: 1.3rem;
+}
+
+.title-card-title {
     position: relative;
     width: max-content;
     color: var(--primary-text-color);
+    font-size: 2rem;
+}
+
+.title-card-title::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: calc(100% + var(--padding));
+    left: calc(var(--padding) * -1);
+    bottom: 0;
+    background: #B33030;
+}
+
+.title-card-content {
+    color: var(--primary-text-color);
+    --padding: 1rem;
+    position: relative;
+    height: 200px;
+    padding: var(--padding);
+    background: linear-gradient(
+            hsl(0 0% 0%  / 0),
+            hsl(0 0% 0%  / 0.4) 20%,
+            hsl(0 0% 0%  / 1)
+    );
+}
+
+.cards {
+    margin-top: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.card-warhammer {
+    background-color: var(--primary-card-color);
+    color: var(--primary-text-color);
+    font-family: sans-serif;
+    width: 300px;
+    position: relative;
+    height: 250px;
+    padding: 5rem 0 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+
+.card-warhammer:hover {
+    transform: scale(1.05);
+}
+
+.card-warhammer::before {
+    content: "";
+    background-image: url(../images/warhammer_card.jpeg);
+    background-size: cover;
+    background-position: 100% 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.card-pathfinder {
+    background-color: var(--primary-card-color);
+    color: var(--primary-text-color);
+    font-family: sans-serif;
+    width: 300px;
+    position: relative;
+    height: 250px;
+    padding: 5rem 0 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+
+.card-pathfinder:hover {
+    transform: scale(1.05);
+}
+
+.card-pathfinder::before {
+    content: "";
+    background-image: url(../images/pathfinder_card.jpeg);
+    background-size: cover;
+    background-position: 100% 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.card-xwing {
+    background-color: var(--primary-card-color);
+    color: var(--primary-text-color);
+    font-family: sans-serif;
+    width: 300px;
+    position: relative;
+    height: 250px;
+    padding: 5rem 0 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+
+.card-xwing:hover {
+    transform: scale(1.05);
+}
+
+.card-xwing::before {
+    content: "";
+    background-image: url(../images/x-wing_card.jpeg);
+    background-size: cover;
+    background-position: 100% 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+.card-content {
+    height: 170px;
+    --padding: 0rem;
+    position: relative;
+    padding: var(--padding);
+    background: linear-gradient(
+            hsl(0 0% 0%  / 0.2) 5%,
+            hsl(0 0% 0%  / 0.4) 20%,
+            hsl(0 0% 0%  / 1)
+    );
+}
+
+
+.card-title, .button {
+    position: relative;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    width: 23ch;
 }
 
 .card-title::after {
@@ -107,16 +307,31 @@ body {
     background: #B33030;
 }
 
-.card-content {
-    color: var(--primary-text-color);
-    --padding: 1.5rem;
+.card-body {
+    font-size: 0.8rem;
     position: relative;
-    padding: var(--padding);
-    background: linear-gradient(
-            hsl(0 0% 0%  / 0),
-            hsl(0 0% 0%  / 0.4) 20%,
-            hsl(0 0% 0%  / 1)
-    );
+}
+
+.buttons {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    margin-bottom: 10px;
+}
+
+.button {
+    cursor: pointer;
+    display: inline;
+    text-decoration: None;
+    color: var(--primary-text-color);
+    background-color: #B33030;
+    padding: 0.5em 1.25em;
+    border-radius: 0.25em;
+}
+
+.button:hover,
+.button:focus {
+    color: #D5D5D5;
 }
 
 .footer {
@@ -148,6 +363,59 @@ body {
 
 @media (max-width: 1000px) {
 
+    .card-title {
+        font-size: 1rem;
+        width: 23ch;
+    }
+
+    .button {
+        cursor: pointer;
+        display: inline;
+        text-decoration: None;
+        color: var(--primary-text-color);
+        background-color: #B33030;
+        padding: 0.3em 0.5em;
+        border-radius: 0.25em;
+    }
+
+    .card-warhammer {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        width: 250px;
+        position: relative;
+        height: 250px;
+        padding: 5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+    }
+
+    .card-pathfinder {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        width: 250px;
+        position: relative;
+        height: 250px;
+        padding: 5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+    }
+
+    .card-xwing {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        width: 250px;
+        position: relative;
+        height: 250px;
+        padding: 5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+    }
 
     .footer-msg, .footer-copyright {
         color: var(--primary-text-color);
@@ -160,7 +428,104 @@ body {
 }
 
 @media (max-width: 700px) {
+    .title-card-warhammer {
+        position: relative;
+        width: 95vw;
+        margin: 0 auto 50px auto;
+        height: 300px;
+        padding: 8rem 0 0;
+        background: var(--primary-bg-color);
+        border-radius: 1rem;
+        overflow: hidden;
 
+    }
+
+    .title-card-pathfinder {
+        position: relative;
+        width: 95vw;
+        margin: 0 auto 50px auto;
+        height: 300px;
+        padding: 8rem 0 0;
+        background: var(--primary-bg-color);
+        border-radius: 1rem;
+        overflow: hidden;
+
+    }
+
+    .title-card-xwing {
+        position: relative;
+        width: 95vw;
+        margin: 0 auto 50px auto;
+        height: 300px;
+        padding: 8rem 0 0;
+        background: var(--primary-bg-color);
+        border-radius: 1rem;
+        overflow: hidden;
+
+    }
+
+    .cards {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+        width: 23ch;
+    }
+
+    .button {
+        cursor: pointer;
+        display: inline;
+        text-decoration: None;
+        color: var(--primary-text-color);
+        background-color: #B33030;
+        padding: 0.4em 1em;
+        border-radius: 0.25em;
+    }
+
+    .card-warhammer {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        width: 350px;
+        position: relative;
+        height: 250px;
+        padding: 5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+        margin-bottom: 10px;
+    }
+
+    .card-pathfinder {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        width: 350px;
+        position: relative;
+        height: 250px;
+        padding: 5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+        margin-bottom: 10px;
+    }
+
+    .card-xwing {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        width: 350px;
+        position: relative;
+        height: 250px;
+        padding: 5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+        margin-bottom: 10px;
+    }
 
     .footer-msg, .footer-copyright {
         color: var(--primary-text-color);
@@ -169,5 +534,22 @@ body {
 
     .footer-msg {
         max-width: 40ch;
+    }
+}
+
+@media (max-width: 500px) {
+    .title-card-warhammer {
+        position: relative;
+        width: 95vw;
+        margin: 0 auto 50px auto;
+        height: 300px;
+        padding: 8rem 0 0;
+        background: var(--primary-bg-color);
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+
+    .title-card-title {
+        font-size: 1.3rem;
     }
 }

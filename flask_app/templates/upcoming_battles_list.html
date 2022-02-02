@@ -23,32 +23,73 @@
 </nav>
 
 <div class="upcoming-container">
-    <div class="title-card-warhammer">
-        <div class="card-content">
-            <h1 class="card-title">The Upcoming games for {{ game }}</h1>
-            <p class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae dui erat.
-                Suspendisse
-                tellus diam, dignissim ac purus eu, volutpat viverra ipsum.</p>
+    {% if game == 'warhammer' %}
+        <div class="title-card-warhammer">
+            <div class="title-card-content">
+                <h1 class="title-card-title">The Upcoming games for {{ game }}</h1>
+                <p class="title-card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae dui erat.
+                    Suspendisse
+                    tellus diam, dignissim ac purus eu, volutpat viverra ipsum.</p>
+            </div>
         </div>
-    </div>
+    {% elif game == 'pathfinder' %}
+        <div class="title-card-pathfinder">
+            <div class="title-card-content">
+                <h1 class="title-card-title">The Upcoming games for {{ game }}</h1>
+                <p class="title-card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae dui erat.
+                    Suspendisse
+                    tellus diam, dignissim ac purus eu, volutpat viverra ipsum.</p>
+            </div>
+        </div>
+    {% elif game == 'x-wing' %}
+        <div class="title-card-xwing">
+            <div class="title-card-content">
+                <h1 class="title-card-title">The Upcoming games for {{ game }}</h1>
+                <p class="title-card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae dui erat.
+                    Suspendisse
+                    tellus diam, dignissim ac purus eu, volutpat viverra ipsum.</p>
+            </div>
+        </div>
+    {% endif %}
     <div class="list-container">
         {% for upcoming_event in upcoming_events %}
-            <p>{{ upcoming_event.name }} on {{ upcoming_event.date }} <a
-                    href="/view_event_secure/{{ upcoming_event.id }}">View</a></p>
-            {% if upcoming_event.creator.id == user.id %}
-                <a href="/edit_upcoming_event/{{ upcoming_event.id }}" class="btn btn-outline-primary">Edit</a>
-                <a href="/delete_upcoming/{{ upcoming_event.id }}" class="btn btn-outline-danger">Delete</a>
+            {% if loop.index0 % 3 == 0 %}
+                <div class="cards">
             {% endif %}
+            {% if game == 'warhammer' %}
+                <div class="card-warhammer">
+            {% elif game == 'pathfinder' %}
+                <div class="card-pathfinder">
+            {% elif game == 'x-wing' %}
+                <div class="card-xwing">
+            {% endif %}
+        <div class="card-content">
+            <h2 class="card-title">{{ upcoming_event.name }}
+                on {{ upcoming_event.date }}</h2>
+            <p class="card-body">{{ upcoming_event.description }}</p>
+            <div class="buttons">
+                <a href="/view_event_secure/{{ upcoming_event.id }}" class="button">view</a>
+                {% if upcoming_event.creator.id == user.id %}
+                    <a href="/edit_upcoming_event/{{ upcoming_event.id }}" class="button">Edit</a>
+                    <a href="/delete_upcoming/{{ upcoming_event.id }}" class="button">Delete</a>
+                {% endif %}
+            </div>
+        </div>
+        </div>
+        {% if loop.index0 % 3 == 2 or loop.last %}
+            </div>
+        {% endif %}
         {% endfor %}
-    </div>
-</div>
-<div class="footer">
-    <div class="footer-text">
-        <img src="../static/images/logo.png" alt="logo.png">
-        <p class="footer-msg">Made with <3 and Coffee. Product of Hector Garcia - Product Manager, Zachary Bacon -
-            Backend, Hiwot Aynalem - Backend, and Brian Yee - Frontend</p>
-        <p class="footer-copyright">©2022 War Wager</p>
-    </div>
-</div>
+        </div>
+        </div>
+        <div class="footer">
+            <div class="footer-text">
+                <img src="../static/images/logo.png" alt="logo.png">
+                <p class="footer-msg">Made with <3 and Coffee. Product of Hector Garcia - Product Manager, Zachary Bacon
+                    -
+                    Backend, Hiwot Aynalem - Backend, and Brian Yee - Frontend</p>
+                <p class="footer-copyright">©2022 War Wager</p>
+            </div>
+        </div>
 </body>
 </html>

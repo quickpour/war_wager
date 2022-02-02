@@ -1,0 +1,385 @@
+:root {
+    --primary-bg-color: #323232;
+    --primary-text-color: #FEF9EF;
+    --secondary-text-color: #D5D5D5;
+    --primary-card-color: #0F0E0E;
+}
+
+html {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--primary-bg-color);
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #041A2F;
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.brand-title img {
+    width: 200px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.navbar-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+
+    list-style: None;
+}
+
+.navbar-links li a, .navbar-links li p {
+    text-decoration: none;
+    color: var(--primary-text-color);
+    padding: 0.5rem;
+    display: inline;
+    font-size: 0.8rem;
+}
+
+.navbar-links li a:hover {
+    color: #E8E1D9;
+}
+
+.event-container {
+    width: 100vw;
+    min-height: 800px;
+    max-height: 100%;
+    background: var(--primary-bg-color);
+    padding: 0;
+}
+
+.title-card-warhammer {
+    position: relative;
+    width: 95vw;
+    margin: auto;
+    height: 300px;
+    padding: 7rem 0 0;
+    background: var(--primary-bg-color);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.title-card-warhammer:before {
+    content: "";
+    background-image: url(https://wallpaperaccess.com/full/1746147.jpg);
+    background-size: cover;
+    background-position: 0 30%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.title-card-pathfinder {
+    position: relative;
+    width: 95vw;
+    margin: auto;
+    height: 300px;
+    padding: 8rem 0 0;
+    background: var(--primary-bg-color);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.title-card-pathfinder:before {
+    content: "";
+    background-image: url(../images/pathfinder_events.jpg);
+    background-size: cover;
+    background-position: 0 20%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.title-card-xwing {
+    position: relative;
+    width: 95vw;
+    margin: auto;
+    height: 300px;
+    padding: 8rem 0 0;
+    background: var(--primary-bg-color);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.title-card-xwing:before {
+    content: "";
+    background-image: url(https://images3.alphacoders.com/823/thumb-1920-823131.jpg);
+    background-size: cover;
+    background-position: 0 40%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.guest-greeting {
+    margin: 110px 0 0 20px;
+    width: max-content;
+    color: var(--primary-text-color);
+    font-size: 1.3rem;
+}
+
+.title-card-title {
+    position: relative;
+    width: max-content;
+    color: var(--primary-text-color);
+    font-size: 2rem;
+}
+
+.title-card-title::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: calc(100% + var(--padding));
+    left: calc(var(--padding) * -1);
+    bottom: 0;
+    background: #B33030;
+}
+
+.title-card-content {
+    color: var(--primary-text-color);
+    --padding: 1rem;
+    position: relative;
+    height: 200px;
+    padding: var(--padding);
+    background: linear-gradient(
+            hsl(0 0% 0%  / 0),
+            hsl(0 0% 0%  / 0.4) 20%,
+            hsl(0 0% 0%  / 1)
+    );
+}
+
+.title-buttons {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin-bottom: 10px;
+}
+
+.title-button {
+    cursor: pointer;
+    display: inline;
+    text-decoration: None;
+    color: var(--primary-text-color);
+    background-color: #B33030;
+    padding: 0.5em 1.25em;
+    border-radius: 0.25em;
+}
+
+.comments-list {
+    width: 95vw;
+    margin: auto;
+    color: var(--primary-text-color);
+}
+
+
+.message-container {
+    background: var(--primary-bg-color);
+    border-bottom: 1px solid var(--primary-text-color);
+    border-radius: 0.5rem;
+    padding: 10px 10px 5px 10px;
+}
+
+#author {
+    color: var(--primary-text-color)
+}
+
+.buttons {
+    display: flex;
+}
+
+.button {
+    font-size: 0.8rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: None;
+    box-shadow: None;
+    color: var(--primary-text-color);
+    background-color: #B33030;
+    padding: 0.4em .8em;
+    border-radius: 0.25em;
+    margin-left: 10px;
+}
+
+.delivery {
+    font-size: 0.5rem;
+}
+
+.edit-del {
+    color-scheme: dark;
+}
+
+.edit-del input {
+    border-bottom: 1px solid var(--primary-text-color);
+    border-radius: 0.5rem;
+    background: transparent;
+}
+
+.edit-del input::placeholder {
+    color: var(--secondary-text-color);
+}
+
+.make-comment {
+
+    width: 95vw;
+    margin: 50px auto 0 auto;
+    color: var(--primary-text-color);
+}
+
+.make-comment textarea {
+    background: transparent;
+    color-scheme: dark;
+    color: var(--primary-text-color);
+}
+
+.make-comment textarea:focus {
+    border-color: var(--secondary-text-color);
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.make-comment textarea::placeholder {
+    color: var(--secondary-text-color);
+}
+
+.comment-button {
+    border: none;
+    cursor: pointer;
+    text-decoration: None;
+    box-shadow: None;
+    color: var(--primary-text-color);
+    background-color: #B33030;
+    padding: 0.5em 1em;
+    border-radius: 0.25em;
+}
+
+
+.footer {
+    margin-top: auto;
+    background-color: #041A2F;
+    padding: 0.5rem;
+    position: relative;
+}
+
+.footer img {
+    width: 150px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.footer-text {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer-msg, .footer-copyright {
+    color: var(--primary-text-color);
+    font-size: 0.7rem;
+}
+
+.footer-msg {
+    max-width: 100ch;
+}
+
+@media (max-width: 1000px) {
+
+    .footer-msg, .footer-copyright {
+        color: var(--primary-text-color);
+        font-size: 0.7rem;
+    }
+
+    .footer-msg {
+        max-width: 60ch;
+    }
+}
+
+@media (max-width: 700px) {
+    .title-card-warhammer {
+        position: relative;
+        width: 95vw;
+        margin: 0 auto 50px auto;
+        height: 300px;
+        background: var(--primary-bg-color);
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+
+    .title-card-pathfinder {
+        position: relative;
+        width: 95vw;
+        margin: 0 auto 50px auto;
+        height: 300px;
+        padding: 8rem 0 0;
+        background: var(--primary-bg-color);
+        border-radius: 1rem;
+        overflow: hidden;
+
+    }
+
+    .title-card-xwing {
+        position: relative;
+        width: 95vw;
+        margin: 0 auto 50px auto;
+        height: 300px;
+        padding: 8rem 0 0;
+        background: var(--primary-bg-color);
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+
+    .title-card-title {
+        position: relative;
+        color: var(--primary-text-color);
+        font-size: 1.3rem;
+        width: 25ch;
+    }
+
+    .message-container p {
+        font-size: 0.8rem;
+    }
+
+    .make-comment textarea {
+        background: transparent;
+        color-scheme: dark;
+        color: var(--primary-text-color);
+        font-size: 0.8rem;
+    }
+
+
+    .footer-msg, .footer-copyright {
+        color: var(--primary-text-color);
+        font-size: 0.5rem;
+    }
+
+    .footer-msg {
+        max-width: 40ch;
+    }
+}
