@@ -18,6 +18,7 @@ body {
     padding: 0;
     background: var(--primary-bg-color);
     display: flex;
+
     flex-direction: column;
 }
 
@@ -47,10 +48,6 @@ body {
     list-style: None;
 }
 
-.navbar-links li:nth-child(-n+2) {
-    border-right: 1px solid white
-}
-
 .navbar-links li a, .navbar-links li p {
     text-decoration: none;
     color: var(--primary-text-color);
@@ -64,11 +61,10 @@ body {
 }
 
 
-
 .background-container {
     position: relative;
     width: 100%;
-    height: 800px;
+    height: 1000px;
 }
 
 
@@ -105,6 +101,35 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.card-create {
+    background-color: var(--primary-card-color);
+    color: var(--primary-text-color);
+    font-family: sans-serif;
+    max-width: 35ch;
+    position: relative;
+    height: 390px;
+    padding: 9rem 0 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+
+.card-create:hover {
+    transform: scale(1.05);
+}
+
+.card-create::before {
+    content: "";
+    background-image: url(../images/wage_war.jpeg);
+    background-size: cover;
+    background-position: 100% 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 .card-warhammer {
@@ -208,6 +233,7 @@ body {
     );
 }
 
+
 .card-title, .button {
     position: relative;
 }
@@ -281,6 +307,19 @@ body {
 
     .landing-ipsum {
         max-width: 35ch;
+    }
+
+    .card-create {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        max-width: 25ch;
+        position: relative;
+        height: 350px;
+        padding: 7.5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
     }
 
     .card-warhammer {
@@ -372,9 +411,6 @@ body {
         max-width: 12ch;
     }
 
-    .landing-ipsum {
-        max-width: 35ch;
-    }
 
     .cards {
         margin-top: 50px;
@@ -382,6 +418,20 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
+    }
+
+    .card-create {
+        background-color: var(--primary-card-color);
+        color: var(--primary-text-color);
+        font-family: sans-serif;
+        max-width: 45ch;
+        position: relative;
+        height: 265px;
+        padding: 6.5rem 0 0;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 500ms ease;
+        margin-top: 10px;
     }
 
     .card-warhammer {
@@ -444,7 +494,6 @@ body {
         padding: 0.3em 1em;
         border-radius: 0.25em;
     }
-
 
 
     .footer-msg, .footer-copyright {
