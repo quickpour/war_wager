@@ -50,15 +50,15 @@
             {% endfor %}
         {% endif %}
     </div>
-    <div class="make-comment">
-        <!-- <h1>Comment:</h1>
-        {% with messages = get_flashed_messages(category_filter=["comment"]) %}
-            {% if messages %}
-                {% for message in messages %}
-                    <p>{{ message }}</p>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+    {#    <div class="make-comment">#}
+    <!-- <h1>Comment:</h1>
+{#        {% with messages = get_flashed_messages(category_filter=["comment"]) %}#}
+{#            {% if messages %}#}
+{#                {% for message in messages %}#}
+{#                    <p>{{ message }}</p>#}
+{#                {% endfor %}#}
+{#            {% endif %}#}
+{#        {% endwith %}#}
 
         <form action="/create_new_comment" method="post">
 {#           <input type="hidden" name="user_id" value="{{ person.id }}" id="">#}
@@ -68,6 +68,7 @@
             </div>
             <button type="submit" class="comment-button">Submit</button>
         </form> -->
+    {#    </div>#}
     </div>
     <div class="footer">
         <div class="footer-text">

@@ -62,10 +62,10 @@ body {
 
 .upcoming-container {
     width: 100vw;
-    min-height: 800px;
-    max-height: 100%;
+    min-height: 100vh;
+    max-height: fit-content;
     background: var(--primary-bg-color);
-    padding: 0;
+    padding-bottom: 75px;
 }
 
 .guest-greeting {
@@ -277,7 +277,7 @@ body {
 
 .card-content {
     height: 170px;
-    --padding: 0rem;
+    --padding: 0.3rem;
     position: relative;
     padding: var(--padding);
     background: linear-gradient(
@@ -309,7 +309,21 @@ body {
 
 .card-body {
     font-size: 0.8rem;
-    position: relative;
+    height: 85px;
+    overflow-y: scroll;
+}
+
+.card-body::-webkit-scrollbar{
+    background: transparent;
+    width: 5px;
+}
+
+.card-body::-webkit-scrollbar-thumb{
+    background: #B33030;
+    border-radius: 1rem;
+}
+.card-body {
+    -ms-overflow-style: none;
 }
 
 .buttons {

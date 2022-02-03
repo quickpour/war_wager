@@ -63,7 +63,8 @@ body {
 
 .main-container {
     background: var(--primary-bg-color);
-    height: 650px;
+    min-height: 100vh;
+    max-height: max-content;
     position: relative;
     padding: 20px;
     display: flex;
@@ -93,7 +94,7 @@ body {
     position: relative;
     color: var(--primary-text-color);
     width: 450px;
-    height: max-content;
+    height: fit-content;
     float: right;
     border-radius: 1.5rem;
     overflow: hidden;
@@ -214,7 +215,6 @@ body {
 
     .main-container {
         background: var(--primary-bg-color);
-        height: 650px;
         position: relative;
         padding: 20px;
         display: flex;
@@ -225,7 +225,7 @@ body {
         position: relative;
         color: var(--primary-text-color);
         width: 300px;
-        height: 475px;
+        height: fit-content;
         margin: auto;
         border-radius: 1.5rem;
         overflow: hidden;
